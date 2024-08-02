@@ -118,7 +118,7 @@ This command will execute the tests using `pytest`.
 - **GET** `/task/<task_id>` - Get details of a specific task.
 - **PUT** `/task/<task_id>` - Update a specific task.
 - **DELETE** `/task/<task_id>` - Delete a specific task.
-- **POST** `/task/<task_id>/assign` - Assign a task to a user.
+- **POST** `/task/<task_id>/assign` - Assign a task to a user. This is priviledge- only the user with the role as Admin can assign tasks to different users. Tasks created by user are by default assigned to the user himself 
 
 ### Task Filtering and Searching
 
