@@ -147,4 +147,4 @@ The `docker-compose.yml` file configures the services for the project:
 - **web**: Flask application service.
 - **test**: Service for running tests.
 
-For using local MySQL Database, change the SQLALCHEMY_DATABASE_URI: mysql+pymysql://root:..... -> to your own credentials in the docker-compose.yaml file
+For using local MySQL Database, change the SQLALCHEMY_DATABASE_URI: mysql+pymysql://root:..... and MYSQL_ROOT_PASSWORD to your own credentials in the docker-compose.yaml file
