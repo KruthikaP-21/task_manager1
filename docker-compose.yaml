@@ -1,0 +1,43 @@
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: Krutu@2001
+      MYSQL_DATABASE: task_manager1
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  web:
+    build: .
+    environment:
+      FLASK_APP: app1.app
+      FLASK_ENV: production
+      SQLALCHEMY_DATABASE_URI: mysql+pymysql://root:Krutu%402001@db/task_manager1
+      SECRET_KEY: your_secret_key
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+#    working_dir: /app1
+    command: ["python","-m","flask", "run", "--host=0.0.0.0"]
+
+  test:
+    build:
+      context: .
+    container_name: task_manager1_test
+    command: [ "pytest" ]
+    environment:
+      FLASK_APP: app1.app
+      FLASK_ENV: testing
+      SQLALCHEMY_DATABASE_URI: mysql+pymysql://root:Krutu%402001@db/task_manager1
+    volumes:
+      - .:/task_manager1
+    depends_on:
+      - db
+
+volumes:
+  mysql_data:
