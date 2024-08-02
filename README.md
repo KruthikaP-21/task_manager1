@@ -118,7 +118,7 @@ This command will execute the tests using `pytest`.
 - **GET** `/task/<task_id>` - Get details of a specific task.
 - **PUT** `/task/<task_id>` - Update a specific task.
 - **DELETE** `/task/<task_id>` - Delete a specific task.
-- **POST** `/task/<task_id>/assign` - Assign a task to a user. This is priviledge- only the user with the role as Admin can assign tasks to different users. Tasks created by user are by default assigned to the user himself 
+- **POST** `/task/<task_id>/assign` - Assign a task to a user. This is priviledged- only the user with the role as Admin can assign tasks to different users. Tasks created by user are by default assigned to the user himself 
 
 ### Task Filtering and Searching
 
@@ -148,3 +148,4 @@ The `docker-compose.yml` file configures the services for the project:
 - **test**: Service for running tests.
 
 For using local MySQL Database, change the SQLALCHEMY_DATABASE_URI: mysql+pymysql://root:..... and MYSQL_ROOT_PASSWORD to your own credentials in the docker-compose.yaml file
+API Documentation can be found here: https://docs.google.com/document/d/1oze-GFqvaE6DWL7roB_14ifXalARRhm2iZ7m8Pk-aw4/edit?usp=sharing
