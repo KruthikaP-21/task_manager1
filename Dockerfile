@@ -1,6 +1,12 @@
 # Use the official Python image as a base image
 FROM python:3.9-slim
 
+# Install netcat
+RUN apt-get update && \
+    apt-get install -y netcat-openbsd && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 # Set the working directory
 WORKDIR /task_manager1
 
