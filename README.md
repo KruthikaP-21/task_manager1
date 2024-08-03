@@ -149,3 +149,5 @@ The `docker-compose.yml` file configures the services for the project:
 
 For using local MySQL Database, change the SQLALCHEMY_DATABASE_URI: mysql+pymysql://root:..... and MYSQL_ROOT_PASSWORD to your own credentials in the docker-compose.yaml file
 API Documentation can be found here: https://docs.google.com/document/d/1oze-GFqvaE6DWL7roB_14ifXalARRhm2iZ7m8Pk-aw4/edit?usp=sharing
+
+If you don't want to use mysql, simply change the SQLALCHEMY_DATABASE_URI in app1/config.py to SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
