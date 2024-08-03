@@ -19,8 +19,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire project to the working directory
 COPY . .
 
-COPY wait-for-it.sh .
-RUN chmod +x wait-for-it.sh
 # Expose the port that the Flask app runs on
 EXPOSE 5000
 

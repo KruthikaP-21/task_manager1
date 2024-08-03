@@ -9,7 +9,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "db"]
       interval: 10s
       timeout: 5s
       retries: 3
@@ -28,13 +28,13 @@ services:
     volumes:
       - .:/app
 #    working_dir: /app1
-    command: ["./wait-for-it.sh", "db:3306", "--", "python","-m","flask", "run", "--host=0.0.0.0"]
+    command: ["python","-m","flask", "run", "--host=0.0.0.0"]
 
   test:
     build:
       context: .
     container_name: task_manager1_test
-    command: [ "./wait-for-it.sh", "db:3306", "--", "pytest" ]
+    command: [ "pytest" ]
     environment:
       FLASK_APP: app1.app
       FLASK_ENV: testing
