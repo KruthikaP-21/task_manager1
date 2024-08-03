@@ -19,6 +19,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire project to the working directory
 COPY . .
 
+COPY wait-for-it.sh .
+RUN chmod +x wait-for-it.sh
 # Expose the port that the Flask app runs on
 EXPOSE 5000
 
@@ -28,4 +30,4 @@ ENV FLASK_ENV=production
 
 # Run the application
 CMD ["cd","app1"]
-CMD ["python","-m","flask", "run", "--host=0.0.0.0"]
+CMD ["./wait-for-it.sh", "db:3306","python","-m","flask", "run", "--host=0.0.0.0"]
