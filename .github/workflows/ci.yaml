@@ -48,8 +48,8 @@ jobs:
 
       - name: Run tests
         run: |
-          sudo service mysql restart
           docker-compose build
+          sudo service mysql restart
           docker-compose run test
 
 
