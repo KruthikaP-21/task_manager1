@@ -20,7 +20,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: Krutu@2001
           MYSQL_DATABASE: task_manager1
         ports:
-          - 3306:3306
+          - 3308:3306
         options: >-
           --health-cmd="mysqladmin ping --silent"
           --health-interval=10s
@@ -48,6 +48,7 @@ jobs:
 
       - name: Run integration tests
         run: |
+          sudo service mysql restart
           docker-compose build
           docker-compose run test
 
