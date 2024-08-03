@@ -46,7 +46,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run integration tests
+      - name: Run tests
         run: |
           sudo service mysql restart
           docker-compose build
