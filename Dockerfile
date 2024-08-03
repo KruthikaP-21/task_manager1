@@ -1,12 +1,6 @@
 # Use the official Python image as a base image
 FROM python:3.9-slim
 
-# Install netcat
-RUN apt-get update && \
-    apt-get install -y netcat-openbsd && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 # Set the working directory
 WORKDIR /task_manager1
 
@@ -28,4 +22,4 @@ ENV FLASK_ENV=production
 
 # Run the application
 CMD ["cd","app1"]
-CMD ["./wait-for-it.sh", "db:3306","python","-m","flask", "run", "--host=0.0.0.0"]
+CMD ["python", "wait-for-it.py", "db", "3306", "&&", "python","-m","flask", "run", "--host=0.0.0.0"]
